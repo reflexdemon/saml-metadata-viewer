@@ -2,11 +2,10 @@ package io.vpv.saml.service;
 
 import io.vpv.saml.metadata.model.IDPMetaData;
 import io.vpv.saml.metadata.service.MetaDataParser;
-import io.vpv.saml.metadata.service.MetaDataParserImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.io.IOException;
 import java.net.URL;
@@ -16,15 +15,14 @@ public class ParseMetadataImpl implements ParseMetadata {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Inject
     private MetaDataParser metaDataParser;
 
-    public ParseMetadataImpl() {
-    }
-
-    @PostConstruct
-    public void initialize() {
-        this.metaDataParser = new MetaDataParserImpl();
-    }
+//    @PostConstruct
+//    public void initialize() {
+//        Want to Avoid This stuff
+//        this.metaDataParser = new MetaDataParserImpl();
+//    }
 
     @Override
     public IDPMetaData getIDPMetaData(URL url) throws IOException {
