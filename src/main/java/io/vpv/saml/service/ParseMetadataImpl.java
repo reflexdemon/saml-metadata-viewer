@@ -18,12 +18,6 @@ public class ParseMetadataImpl implements ParseMetadata {
     @Inject
     private MetaDataParser metaDataParser;
 
-//    @PostConstruct
-//    public void initialize() {
-//        Want to Avoid This stuff
-//        this.metaDataParser = new MetaDataParserImpl();
-//    }
-
     @Override
     public IDPMetaData getIDPMetaData(URL url) throws IOException {
         logger.info("Parsing {}", url);
