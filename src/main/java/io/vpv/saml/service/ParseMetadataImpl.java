@@ -21,7 +21,9 @@ public class ParseMetadataImpl implements ParseMetadata {
     @Override
     public IDPMetaData getIDPMetaData(URL url) throws IOException {
         logger.info("Parsing {}", url);
-        logger.info("metaDataParser {}", metaDataParser);
-        return metaDataParser.parseIDPMetaData(url);
+
+        IDPMetaData metaData = metaDataParser.parseIDPMetaData(url);
+        logger.info("metaData {}", metaData);
+        return metaData;
     }
 }
